@@ -1,9 +1,6 @@
 package com.sptek.webfw.example.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class ExampleGoodsDto {
     private String manufacturerName;
     private String name;
-    private long originPrice = 0;
+    private long originPrice = 0L;
     private int weight = 1;
     private long discountedPrice;
     private int stock;
