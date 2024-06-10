@@ -1,0 +1,120 @@
+
+### hello
+GET {{api-server-ver}}/hello?message=hi
+Content-Type: application/json
+
+> {%
+//동적 변수 set 테스트
+const eTag = response.headers.valueOf("ETag");
+if (eTag) {
+    client.global.set("eTag", eTag);
+    client.log("set eTag: " + client.global.get("eTag"));
+} else {
+    client.log("eTag not found in header");
+}
+%}
+
+
+### 서버정보
+GET {{api-server-ver}}/projectinfo
+Content-Type: application/json
+ETag: {{eTag}}
+
+
+
+### XssProtectSupport 테스트
+GET {{api-server-ver}}/XssProtectSupportGet?originText=<javascript>alert('hello');</javascript>
+Content-Type: application/json
+
+### XssProtectSupport 테스트
+POST {{api-server-ver}}XssProtectSupportPost
+Content-Type: application/json
+
+{
+  "originText": "<javascript>alert('hello');</javascript>"
+}
+
+
+
+### interceptor 테스트
+GET https://back.localhost:8080/api/v1/interceptor
+Content-Type: application/json
+
+### interceptor 테스트
+GET https://back.localhost:8080/api/v2/interceptor
+Content-Type: application/json
+
+### interceptor 테스트
+PUT https://back.localhost:8080/api/v1/interceptor
+Content-Type: application/json
+
+### interceptor 테스트
+DELETE https://back.localhost:8080/api/v1/interceptor
+Content-Type: application/json
+
+
+
+### closeableHttpClient 테스트
+GET {{api-server-ver}}/closeableHttpClient
+Content-Type: application/json
+
+### closeableHttpClientSupport 테스트
+POST {{api-server-ver}}/closeableHttpClientSupport
+Content-Type: application/json
+
+### restTemplate 테스트
+GET {{api-server-ver}}/restTemplate
+Content-Type: application/json
+
+### restTemplateSupport 테스트
+GET {{api-server-ver}}/restTemplateSupport
+Content-Type: application/json
+
+### reqResUtil 테스트
+POST {{api-server-ver}}/reqResUtil?a=1&b=2&a=3
+Content-Type: application/json
+
+
+
+### validationAnnoTationt Post 테스트
+POST {{api-server-ver}}/validationAnnotationPost
+Content-Type: application/json
+
+{
+  "userId": "sungilry",
+  "userName": "sungil",
+  "age": 10,
+  "email": "sungilrynaver.com",
+  "mobileNumber" : "01042983113"
+}
+
+### validationAnnoTationt Get 테스트
+GET {{api-server-ver}}/validationAnnotationGet?userId=sungilry&userName=sungilry&age=43&email=sungilry%40naver.com&mobileNumber=01042983113
+Content-Type: application/json
+
+
+
+### property 테스트
+GET {{api-server-ver}}/propertyConfigImport
+Content-Type: application/json
+
+
+
+### customMyUserHandler 테스트
+GET {{api-server-ver}}/argumentResolverForMyUser?id=admin
+Content-Type: application/json
+
+### customMyUserHandler2 테스트1
+GET {{api-server-ver}}/argumentResolverForMyUser2?id=admin
+Content-Type: application/json
+
+### customMyUserHandler2 테스트2
+GET {{api-server-ver}}/argumentResolverForMyUser2?id=sungil
+Content-Type: application/json
+
+
+
+### duplicatedRequest 테스트
+GET {{api-server-ver}}/duplicatedRequest
+Content-Type: application/json
+
