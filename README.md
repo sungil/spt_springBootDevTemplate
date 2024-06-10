@@ -4,7 +4,7 @@
 그대로 사용하셔도 되고 본인 스타일로 변형하여 나만의 프로젝틀 구성하시는데 사용하셔도 좋을 듯 합니다.
 <br><br>
 
-Front(SSR) 와 API BackEnd 서버를 구성하기 위한 전체적인 흐름이 구성되어 있으며 
+Front(SSR) 와 API BackEnd 서버를 구성하기 위한 전체적인 흐름이 구성되어 있으며
 Spring에서 자주 사용되는 기술요소 들에 대한 code snippet 들이 구성되어 있습니다.
 <br><br>
 
@@ -15,8 +15,10 @@ Spring에서 자주 사용되는 기술요소 들에 대한 code snippet 들이 
 좋은 의견과 질문은 언제든 환영입니다.
 <br><br>
 
+
+<h7>참고 : 코드 내 CORS 코드를 테스트 하기 위해서는 host 파일에 아래를 추가해 주세요.</h7>
+
 ```html
-CORS 코드를 테스트 하기 위해서는 host 파일에 아래를 추가해 주세요.
 127.0.0.1 localhost
 127.0.0.1 fron.localhost
 127.0.0.1 back.localhost
